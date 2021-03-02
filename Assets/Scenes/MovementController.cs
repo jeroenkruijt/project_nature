@@ -11,18 +11,20 @@ public class MovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+        Rigidbody2D rigidbody2D1 = GetComponent<Rigidbody2D>();
+        _rigidbody = rigsidbody2D1;
 
     // Update is called once per frame
     void Update()
     {
+        //makes the movement happen you can changes the speed in unity under the compent throught the public float
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
 
+        // makes the jump happen the speed and hight can be determent in unity throught the public float
         if(Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y)< 0.001f)
         {
-            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            _rigidbody.AddForce(new Vector2(0, JumpForce), (ForceMode)ForceMode2D.Impulse);
         }
     }
 }
