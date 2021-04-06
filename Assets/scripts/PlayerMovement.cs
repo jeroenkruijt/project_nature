@@ -10,6 +10,12 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+    private Inventory inventory;
+
+    private void Awake()
+    {
+        inventory = new Inventory();
+    }
 
     void Update()
     {
