@@ -34,5 +34,7 @@ public class PlayerMovement : MonoBehaviour
         float my = Input.GetAxisRaw("Vertical");
 
         movement = new Vector2(mx, my).normalized;
+
+        rb.rotation = mx * my;
     }
 }

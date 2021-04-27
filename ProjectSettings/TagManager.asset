@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - trash
+  - bin
   layers:
   - Default
   - TransparentFX
