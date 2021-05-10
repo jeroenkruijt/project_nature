@@ -10,22 +10,22 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
-    private Inventory inventory;
-
-    private void Awake()
+    private void Start()
     {
-        inventory = new Inventory();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         MovementInput();
+
     }
 
     private void FixedUpdate()
     {
         //movement calc
         rb.velocity = movement * moveSpeed;
+
     }
 
     void MovementInput()
@@ -35,6 +35,5 @@ public class PlayerMovement : MonoBehaviour
 
         movement = new Vector2(mx, my).normalized;
 
-        rb.rotation = mx * my;
     }
 }
