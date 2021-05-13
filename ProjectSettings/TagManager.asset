@@ -6,7 +6,11 @@ TagManager:
   tags:
   - trash
   - bin
-  - TrashCanGreen
+  - binred
+  - binyellow
+  - binblue
+  - binpurple
+  - bingreen
   layers:
   - Default
   - TransparentFX
