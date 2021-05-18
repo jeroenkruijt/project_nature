@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeRobot : MonoBehaviour
+public class UpgradeAdmin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public static int rTrashcollected;
+
     void Update()
     {
-        
+        Debug.Log("rTrashcollected;");
     }
 }
+

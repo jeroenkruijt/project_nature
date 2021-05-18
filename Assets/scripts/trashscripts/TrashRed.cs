@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashRed : MonoBehaviour
-{
+{ 
+    public int rTrashcollected_global;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,10 @@ public class TrashRed : MonoBehaviour
 
         if (collision.gameObject.CompareTag("binred"))
         {
+            RoboAdmin.rTrashcollected += 1;
             ScoreText.scoreValue += 100;
             Destroy(gameObject);
+
         }
         else if (!collision.gameObject.CompareTag("binred"))
         {

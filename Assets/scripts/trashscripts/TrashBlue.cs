@@ -5,15 +5,15 @@ using UnityEngine;
 public class TrashBlue : MonoBehaviour
 {
     // Start is called before the first frame update
+   
     void Start()
     {
-        
+ 
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +22,8 @@ public class TrashBlue : MonoBehaviour
 
         if (collision.gameObject.CompareTag("binblue"))
         {
+            // Add score to Upgrade Tracker
+            
             ScoreText.scoreValue += 100;
             Destroy(gameObject);
         }
@@ -31,4 +33,5 @@ public class TrashBlue : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
