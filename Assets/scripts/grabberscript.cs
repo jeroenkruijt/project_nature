@@ -9,7 +9,7 @@ public class grabberscript : MonoBehaviour
 	public Rigidbody2D rb;
 	public bool grabbed;
 	RaycastHit2D hit;
-	public float distance = 2f;
+	public float distance = 1f;
 	public Transform holdpoint;
 	public float throwforce;
 	public LayerMask notgrabbed;
@@ -26,7 +26,7 @@ public class grabberscript : MonoBehaviour
 	{
 		mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetMouseButtonDown(1))
 		{
 
 			if (!grabbed)
@@ -50,8 +50,8 @@ public class grabberscript : MonoBehaviour
 
 				if (hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
 				{
-
-					hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x, 1) * throwforce;
+					Vector2 lookDir = mousePos - rb.position;
+					hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity = lookDir * throwforce;
 				}
 
 
@@ -62,8 +62,9 @@ public class grabberscript : MonoBehaviour
 		}
 
 		if (grabbed)
+		{ 
 			hit.collider.gameObject.transform.position = holdpoint.position;
-
+		}
 
 	}
 	

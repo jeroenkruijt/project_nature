@@ -39402,10 +39402,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9695d487fd0159e4b805da40bd107bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  rb: {fileID: 1547678394}
   grabbed: 0
   distance: 2
   holdpoint: {fileID: 2047216393}
-  throwforce: 0
+  throwforce: 50
   notgrabbed:
     serializedVersion: 2
     m_Bits: 0
