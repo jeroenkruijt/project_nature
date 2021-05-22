@@ -4,7 +4,9 @@ using System.Collections;
 
 public class grabberscript : MonoBehaviour
 {
-
+	Vector2 mousePos;
+	public Camera cam;
+	public Rigidbody2D rb;
 	public bool grabbed;
 	RaycastHit2D hit;
 	public float distance = 2f;
@@ -15,12 +17,14 @@ public class grabberscript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
+		rb = GetComponent<Rigidbody2D>();
 	}
 
-	// Update is called once per frame
+	
+
 	void Update()
 	{
+		mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
 		if (Input.GetKeyDown(KeyCode.E))
 		{
@@ -28,8 +32,8 @@ public class grabberscript : MonoBehaviour
 			if (!grabbed)
 			{
 				Physics2D.queriesStartInColliders = false;
-
-				hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
+				Vector2 lookDir = mousePos - rb.position;
+				hit = Physics2D.Raycast(transform.position, lookDir, distance);
 
 				if (hit.collider != null && hit.collider.tag == "trash")
 				{
@@ -62,7 +66,7 @@ public class grabberscript : MonoBehaviour
 
 
 	}
-
+	
 	void OnDrawGizmos()
 	{
 		Gizmos.color = Color.green;
