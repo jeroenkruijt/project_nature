@@ -25,7 +25,7 @@ public class TrashBlue : MonoBehaviour
             ScoreText.scoreValue += 100;
             Destroy(gameObject);
         }
-        else if (!collision.gameObject.CompareTag("binblue"))
+        else if (collision.gameObject.CompareTag("bin") && !collision.gameObject.CompareTag("binblue"))
         {
             ScoreText.scoreValue -= 100;
             Destroy(gameObject);

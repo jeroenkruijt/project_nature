@@ -11,6 +11,7 @@ TagManager:
   - binblue
   - binpurple
   - bingreen
+  - TrashMagnet
   layers:
   - Default
   - TransparentFX

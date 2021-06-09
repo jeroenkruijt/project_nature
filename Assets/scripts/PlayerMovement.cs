@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         MovementInput();
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
+      
     }
 
     private void FixedUpdate()

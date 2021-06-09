@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class TrashRed : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Rigidbody2D rb;
+    public GameObject player;
+    
+    Vector2 playerDirection;
+
+    float timeStamp;
+
+    [SerializeField]
+    bool attractToPlayer;
+    bool TouchingPlayer;
+
     void Start()
     {
-        
+        player = GameObject.Find("player");
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (attractToPlayer)
+        {
+            if(Input.GetKey("f"))
+            { 
+            playerDirection = -(transform.position - player.transform.position).normalized;
+            rb.AddForce(new Vector2(playerDirection.x, playerDirection.y) * 10f);
+            }
+            
+        }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Destroy(gameObject);
@@ -22,13 +39,29 @@ public class TrashRed : MonoBehaviour
 
         if (collision.gameObject.CompareTag("binred"))
         {
+            UpgradeAdmin.redTrashCollected += 1;
             ScoreText.scoreValue += 100;
             Destroy(gameObject);
         }
-        else if (!collision.gameObject.CompareTag("binred"))
+
+        else if (collision.gameObject.CompareTag("bin") && !collision.gameObject.CompareTag("binred"))
         {
             ScoreText.scoreValue -= 100;
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("TrashMagnet"))
+        {
+            attractToPlayer = true;
+        }
+
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("TrashMagnet"))
+        {
+            attractToPlayer = false;
         }
     }
 }
