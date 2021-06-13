@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1869315837
-  m_SortingLayer: 1
+  m_SortingLayerID: 1744773139
+  m_SortingLayer: 4
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: e6868b328a0c9e14889c60a336557ba7, type: 3}
   m_Color: {r: 0.9058824, g: 0.9058824, b: 0.9058824, a: 1}
@@ -98,9 +98,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0012934208}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.63064075
 --- !u!50 &5389415385274371096
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.7853982
+  m_Mass: 1.2494358
   m_LinearDrag: 1.5
   m_AngularDrag: 1.5
   m_GravityScale: 0
@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10cb66be0b5f63d408223c56a015e96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Soundeffect: {fileID: 8300000, guid: e75de2b84151d7645a8b7721ae902b9a, type: 3}

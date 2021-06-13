@@ -19,10 +19,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Objects
+  - Player
+  - Ivisible Wall
   - 
   - 
   - 
@@ -49,12 +49,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer 1
-    uniqueID: 2425651459
+  - name: Water
+    uniqueID: 2908965251
     locked: 0
-  - name: Layer 2
+  - name: Ground
     uniqueID: 4250941897
     locked: 0
-  - name: Layer 3
+  - name: Collidable
     uniqueID: 4189426099
+    locked: 0
+  - name: Objects
+    uniqueID: 1744773139
+    locked: 0
+  - name: Player
+    uniqueID: 2466599779
+    locked: 0
+  - name: Ui
+    uniqueID: 2425651459
     locked: 0

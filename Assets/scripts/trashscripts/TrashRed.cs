@@ -6,7 +6,7 @@ public class TrashRed : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject player;
-    
+
     Vector2 playerDirection;
 
     float timeStamp;
@@ -15,20 +15,28 @@ public class TrashRed : MonoBehaviour
     bool attractToPlayer;
     bool TouchingPlayer;
 
+    public AudioClip Soundeffect;
+
     void Start()
     {
+
         player = GameObject.Find("player");
     }
     void Update()
     {
         if (attractToPlayer)
         {
-            if(Input.GetKey("f"))
-            { 
-            playerDirection = -(transform.position - player.transform.position).normalized;
-            rb.AddForce(new Vector2(playerDirection.x, playerDirection.y) * 10f);
+            if (Input.GetKey("f"))
+            {
+                playerDirection = -(transform.position - player.transform.position).normalized;
+                rb.AddForce(new Vector2(playerDirection.x, playerDirection.y) * 10f);
             }
-            
+
+        }
+        if (SunkenTrash.TrashisSunken)
+        {
+            ScoreText.scoreValue -= 100;
+            Destroy(gameObject);
         }
     }
 
@@ -41,6 +49,7 @@ public class TrashRed : MonoBehaviour
         {
             UpgradeAdmin.redTrashCollected += 1;
             ScoreText.scoreValue += 100;
+            AudioSource.PlayClipAtPoint(Soundeffect, transform.position);
             Destroy(gameObject);
         }
 
@@ -55,13 +64,7 @@ public class TrashRed : MonoBehaviour
             attractToPlayer = true;
         }
 
-        
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("TrashMagnet"))
-        {
-            attractToPlayer = false;
-        }
+
     }
 }
+
