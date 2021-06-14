@@ -6,6 +6,7 @@ using UnityEngine;
 public class TrashYellow : MonoBehaviour
 {
     public AudioClip Soundeffect;
+
    
     
     // Start is called before the first frame update

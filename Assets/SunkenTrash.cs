@@ -11,7 +11,7 @@ public class SunkenTrash : MonoBehaviour
     public static bool TrashisSunken = false;
     public GameObject Trash;
     public bool waswaited;
-    bool survived;
+    bool TrashisinWater;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,23 +19,39 @@ public class SunkenTrash : MonoBehaviour
     }
     private void Update()
     {
-        if (waswaited)
-        {
+    }
+    public IEnumerator SinkTrash()
+    {
+        yield return new WaitForSeconds(2f);
+        waswaited = true;
+        Debug.Log("Coroutine Started");
 
-            ScoreText.scoreValue -= 100;
-            waswaited = false;
-            Destroy(Trash);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("trash"))
+        {
+         waswaited = false;
+        GameObject Trash = collision.gameObject;
+        StartCoroutine(SinkTrash());
         }
     }
-   
-}
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+            if (waswaited)
+            {
+                ScoreText.scoreValue -= 100;
+                waswaited = false;
+                Destroy(collision.gameObject);
+            }
+        }
+       
 
-// public IEnumerator SinkTrash(GameObject gobject)
-// {
-//   yield return new WaitForSeconds(2f);
-//   waswaited = true;
+    }
+    
 
 
-//}
-//  private void OnCollision2D
+
 
