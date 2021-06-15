@@ -11,7 +11,7 @@ public class TrashTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        trashTracker.text = "Metall:" + UpgradeAdmin.redTrashCollected.ToString();
+        trashTracker.text = "Metal:" + UpgradeAdmin.redTrashCollected.ToString();
         if (UpgradeAdmin.redUpgrade)
         {
             trashTracker.color = new Color(255, 215, 0);

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class SunkenTrash : MonoBehaviour
 {
     [SerializeField] TilemapCollider2D waterborder;
-    [SerializeField] bool NoWaterBorder = false;
+    
     public static bool TrashisSunken = false;
     public GameObject Trash;
+    public AudioClip WaterDropSound;
     public bool waswaited;
     bool TrashisinWater;
     // Start is called before the first frame update
@@ -23,8 +25,11 @@ public class SunkenTrash : MonoBehaviour
     public IEnumerator SinkTrash()
     {
         yield return new WaitForSeconds(2f);
+        if(!waswaited)
+        { 
         waswaited = true;
-        Debug.Log("Coroutine Started");
+        }
+
 
     }
 
@@ -45,8 +50,10 @@ public class SunkenTrash : MonoBehaviour
                 ScoreText.scoreValue -= 100;
                 waswaited = false;
                 Destroy(collision.gameObject);
-            }
+                AudioSource.PlayClipAtPoint(WaterDropSound, transform.position);
+
         }
+    }
        
 
     }

@@ -59,12 +59,20 @@ public class TrashRed : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("TrashMagnet") && UpgradeAdmin.redTrashCollected >= 5)
+        if (collision.gameObject.CompareTag("TrashMagnet") && UpgradeAdmin.redUpgrade)
         {
             attractToPlayer = true;
         }
 
 
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("TrashMagnet"))
+        {
+            attractToPlayer = false;
+
+        }
     }
 }
 

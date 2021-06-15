@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class UpgradeAdmin : MonoBehaviour
 {
-    public static int redTrashCollected = 0;
+    [SerializeField] public static int redTrashCollected = 0;
     public static int yellowTrashCollected = 0;
     public static int blueTrashCollected = 0;
     public static int greenTrashCollected = 0;
     public static bool redUpgrade;
+    [SerializeField] public static bool yellowUpgrade;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,14 @@ public class UpgradeAdmin : MonoBehaviour
         if(redTrashCollected >= 5)
         {
             redUpgrade = true;
+
+        }
+
+        if (yellowTrashCollected >= 5)
+        {
+            yellowUpgrade = true;
+
         }
     }
+
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrashBlue : MonoBehaviour
 {
+    public AudioClip Soundeffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class TrashBlue : MonoBehaviour
         {
             ScoreText.scoreValue += 100;
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(Soundeffect, transform.position);
+
         }
         else if (collision.gameObject.CompareTag("bin") && !collision.gameObject.CompareTag("binblue"))
         {

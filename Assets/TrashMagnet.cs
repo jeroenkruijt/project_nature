@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TrashMagnet : MonoBehaviour
 {
-    public GameObject player;
-   
+
+    public GameObject Magnet;
+    public GameObject Player;
 
     // Start is called before the first frame update
     void Update()
     {
-        transform.position = player.transform.position;
+        Magnet.transform.position = new Vector2(Player.transform.position.x, Player.transform.position.y);
         
     }
 

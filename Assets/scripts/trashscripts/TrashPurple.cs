@@ -22,7 +22,7 @@ public class TrashPurple : MonoBehaviour
 
         if (collision.gameObject.CompareTag("binpurple"))
         {
-            ScoreText.scoreValue += 100;
+            ScoreText.scoreValue += 500;
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("bin") && !collision.gameObject.CompareTag("binpurple"))

@@ -32,6 +32,7 @@ public class TrashYellow : MonoBehaviour
             ScoreText.scoreValue += 100;
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(Soundeffect, transform.position);
+            UpgradeAdmin.yellowTrashCollected += 1;
             
         }
         else if (collision.gameObject.CompareTag("bin") && !collision.gameObject.CompareTag("binyellow"))
